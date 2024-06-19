@@ -26,7 +26,7 @@ class RewardappApplicationTests {
 	@Test
 	void customerRewardsEndPointTest1() throws Exception {
 		String baseUrl = "http://localhost:" + port + "/";	
-		System.out.println("url val...."+baseUrl);
+		
 		ResponseEntity<CustomerRewards> responseEntity = restTemplate.getForEntity(baseUrl + API_CUSTOMER_SUMMARY +"/2", CustomerRewards.class);
 		assert(responseEntity.getStatusCode() == HttpStatus.OK);
 		CustomerRewards rewardsInfo = responseEntity.getBody();
