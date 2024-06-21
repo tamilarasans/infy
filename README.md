@@ -1,4 +1,4 @@
-RewardsApp is a spring boot application developed to find out customer reward points based on their transaction range per month.
+RewardApp is a spring boot application developed to find out customer reward points based on their transaction range per month.
 
 Pre-requisites : Spring Tool Suite / eclipse with Java version 8 or above. Clone the repository and import as  maven project in STS/eclipse.
 
