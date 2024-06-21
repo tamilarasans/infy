@@ -5,9 +5,9 @@ Pre-requisites : Spring Tool Suite / eclipse with Java version 8 or above. Clone
 Run the project as springboot app. 
 
 Once the localhost server is up in 8080 port
-Open H2 in memory console (http://localhost:8080/h2-console) supply username as "sa" & password as "password" and login 
+Open H2 in memory console (http://localhost:8080/h2-console) supply username as "sa" & password as "password" for  jdbc:h2:mem:dbtest DB and login.
 
-Populate the customertransactiondatarepo with few records by using rewards/src/main/resources/data.sql.
+Populate the customer transaction datarepo with few records by using rewards/src/main/resources/data.sql.
 
 Now the application is ready to serve api requests.
 
