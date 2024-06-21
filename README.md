@@ -6,6 +6,7 @@ Run the project as springboot app.
 
 Once the localhost server is up in 8080 port
 Open H2 in memory console (http://localhost:8080/h2-console) supply username as "sa" & password as "password" and login 
+
 Populate the customertransactiondatarepo with few records by using rewards/src/main/resources/data.sql.
 
 Now the application is ready to serve api requests.
@@ -18,8 +19,8 @@ This shows summary of points for customer with customerId =2 where yearMonth fie
 
 
 Application:
- Request hits controller
- Controller invokes service to provide customer reward info with total points
+ Request hits controller ,
+ Controller invokes service to provide customer reward info with total points.
  Service 
  1. fetch all txn of the customerId.
  2. prepare yearmonth and transaction map
