@@ -7,7 +7,7 @@ Run the project as springboot app.
 Once the localhost server is up in 8080 port
 Open H2 in memory console (http://localhost:8080/h2-console) supply username as "sa" & password as "password" for  jdbc:h2:mem:dbtest DB and login.
 
-Populate the customer transaction datarepo with few records by using rewards/src/main/resources/data.sql.
+Populate the customer transaction datarepo with few records by using rewardapp/data.sql.
 
 Now the application is ready to serve api requests.
 
