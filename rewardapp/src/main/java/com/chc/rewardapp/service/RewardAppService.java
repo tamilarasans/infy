@@ -29,31 +29,31 @@ public class RewardAppService {
 		// Fetch all the customer purchase transactions.
 				List<CustomerTxns> transactions = customerTxnRepo
 						.findByCustomerIdOrderByPurchaseDateDesc(customerId);
-				logger.debug("Fetch complete all the customer purchase transactions");
+				logger.info("Fetch complete all the customer purchase transactions");
 				// Validate if customers purchase transactions are not null/ empty.
 				if (transactions != null && !transactions.isEmpty()) {
 					
-					logger.debug("Fetch complete all the customer purchase transactions");
+					logger.info("Fetch complete all the customer purchase transactions");
 					// Create a map of YearMonth and transactions specific to it for the costumerId.
 					Map<YearMonth, List<CustomerTxns>> yearMonthMap = transactions.stream()
 							.collect(Collectors.groupingBy(CustomerTxns::getPurchaseYearMonth));
 					// Create monthly summary of points for each YearMonth.
-					logger.debug("Create monthly summary of points for each YearMonth");
+					logger.info("Create monthly summary of points for each YearMonth");
 					List<YearMonthPointsInfo> monthlySummary = yearMonthMap.entrySet().stream()
 							.map(e -> YearMonthPointsInfo.builder().yearMonth(e.getKey())
 							.points(getRewardPoints(e.getValue())).build())
 							.collect(Collectors.toList());
 					// Build customer rewards info containing all the months and points for a specific customer.
-					logger.debug("Build customer rewards info containing all the months and points for a specific customer");
+					logger.info("Build customer rewards info containing all the months and points for a specific customer");
 					customerRewards = CustomerRewards.builder().customerId(customerId).monthlySummary(monthlySummary)
 							.totalPoints(monthlySummary.stream().mapToInt(YearMonthPointsInfo::getPoints).sum()).build();
 				
 				}
 	else {
-		logger.debug("No Transactions found for CustID");
+		logger.info("No Transactions found for CustID");
 		customerRewards = customerRewards.builder().customerId(customerId).monthlySummary(null)
 						.totalPoints(0).build();
-		throw new IllegalStateException(); 
+		//throw new IllegalStateException(); 
 			}
 		
 		return customerRewards;
