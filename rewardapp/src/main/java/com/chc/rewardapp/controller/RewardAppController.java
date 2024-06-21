@@ -20,7 +20,7 @@ public class RewardAppController {
 	
 	@RequestMapping("/get/{customerId}")
 	public ResponseEntity<CustomerRewards> getCustomerRewardsPointsById(@PathVariable Integer customerId) throws Exception {
-		logger.debug("Get customer details "+customerId.intValue());
+		logger.info("Get customer details "+customerId.intValue());
 		CustomerRewards customerRewards = rewardAppService.getCustomerRewardsPointsById(customerId);
 		return ResponseEntity.ok().body(customerRewards);
 	}
