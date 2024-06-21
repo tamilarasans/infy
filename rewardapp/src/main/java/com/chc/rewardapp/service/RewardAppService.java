@@ -21,15 +21,18 @@ import com.chc.rewardapp.util.RewardAppConstants;
 public class RewardAppService {
 	Logger logger= LoggerFactory.getLogger(RewardAppService.class);
 	
-	@Autowired
-	private CustomerTxnRepo customerTxnRepo;
 	
+	private CustomerTxnRepo customerTxnRepo;
+
+	public RewardAppService(CustomerTxnRepo customerTxnRepo) {
+	  this.customerTxnRepo = customerTxnRepo;
+	    }
 	public CustomerRewards getCustomerRewardsPointsById(Integer customerId) throws Exception {
 		CustomerRewards customerRewards = null;
 		// Fetch all the customer purchase transactions.
 				List<CustomerTxns> transactions = customerTxnRepo
 						.findByCustomerIdOrderByPurchaseDateDesc(customerId);
-				logger.info("Fetch complete all the customer purchase transactions");
+				logger.info("Fetch complete all the customer purchase transactions for CustomerId: {}",customerId);
 				// Validate if customers purchase transactions are not null/ empty.
 				if (transactions != null && !transactions.isEmpty()) {
 					
@@ -53,7 +56,7 @@ public class RewardAppService {
 		logger.info("No Transactions found for CustID");
 		customerRewards = customerRewards.builder().customerId(customerId).monthlySummary(null)
 						.totalPoints(0).build();
-		//throw new IllegalStateException(); 
+		
 			}
 		
 		return customerRewards;
