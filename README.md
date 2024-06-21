@@ -6,6 +6,7 @@ Run the project as springboot app.
 
 Once the localhost server is up in 8080 port
 Open H2 in memory console (http://localhost:8080/h2-console) supply username as "sa" & password as "password" for  jdbc:h2:mem:dbtest DB and login.
+refer files rewardapp/h2-console.PNG and rewardapp/customerloadinH2.PNG
 
 Populate the customer transaction datarepo with few records by using rewardapp/data.sql.
 
@@ -33,3 +34,6 @@ Points calculation logic : A customer receives 2 points for every dollar spent o
 Application is built using Spring Boot framework with in memory db h2.
 
 URL can be used for other customersId=1 or 3 by replacing 1 at the end of the url.
+
+Api & Unit test results:
+pl refer rewardapp/unittestresults.PNG , rewardapp/api-1.PNG and rewardapp/api2.PNG
