@@ -25,7 +25,7 @@ class RewardappApplicationTests {
 	
 	@Test
 	void customerRewardsEndPointTest1() throws Exception {
-		String baseUrl = "http://localhost:" + port + "/";	
+		String baseUrl = "http://localhost:8080" + "/";	
 		
 		ResponseEntity<CustomerRewards> responseEntity = restTemplate.getForEntity(baseUrl + API_CUSTOMER_SUMMARY +"/2", CustomerRewards.class);
 		assert(responseEntity.getStatusCode() == HttpStatus.OK);
@@ -36,7 +36,7 @@ class RewardappApplicationTests {
 
 	@Test
 	void customerRewardsEndPointTest2() throws Exception {
-		String baseUrl = "http://localhost:" + port + "/";		
+		String baseUrl = "http://localhost:8080"  + "/";		
 		ResponseEntity<CustomerRewards> responseEntity = restTemplate.getForEntity(baseUrl + API_CUSTOMER_SUMMARY +"/1", CustomerRewards.class);
 		assert(responseEntity.getStatusCode() == HttpStatus.OK);
 		CustomerRewards rewardsInfo = responseEntity.getBody();
