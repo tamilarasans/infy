@@ -19,15 +19,16 @@ This shows summary of points for customer with customerId =2 where yearMonth fie
 
 Application:
  Request hits controller
- Controller invokes service to fetch all txn of the customerId.
+ Controller invokes service to provide customer reward info with total points
  Service 
- 1. prepare yearmonth and transaction map
- 2. Prepare Monthly summary of points by processing Yearmonth map using 
- 3. Build customerrewardinfo by using monthly summary and total ponts calculation for each transaction of that month.
+ 1. fetch all txn of the customerId.
+ 2. prepare yearmonth and transaction map
+ 3. Prepare Monthly summary of points by processing Yearmonth map using 
+ 4. Build final customerrewardinfo by using monthly summary and total ponts calculation for each transaction of that month.
 
 
 Points calculation logic : A customer receives 2 points for every dollar spent over $100 in each transaction, plus 1 point for every dollar spent between $50 and $100 in each transaction.(e.g. a $120 purchase = 2x$20 + 1x$50 = 90 points).
 
-Applicatiom is built using Spring Boot framework with in memory db h2.
+Application is built using Spring Boot framework with in memory db h2.
 
 URL can be used for other customersId=1 or 3 by replacing 1 at the end of the url.
