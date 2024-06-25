@@ -12,13 +12,12 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class CustomerRewards {
-	
 
 	private Integer customerId;
 	/**
 	 * List of monthly summary of points.
 	 */
-	private List<YearMonthPointsInfo> monthlySummary; 
+	private List<YearMonthPointsInfo> monthlySummary;
 
 	/**
 	 * Total points earned by customer.
