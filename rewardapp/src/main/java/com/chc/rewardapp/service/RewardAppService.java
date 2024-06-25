@@ -44,7 +44,7 @@ public class RewardAppService {
 					.collect(Collectors.toList());
 			// Build customer rewards object with monthly summary of points and total reward
 			// points of customerId
-			logger.info("Build customer rewards info containing all the months and points for a specific customer");
+			logger.info("Build customer rewards object with monthly summary of points and total reward points of customerId");
 			customerRewards = CustomerRewards.builder().customerId(customerId).monthlySummary(monthlySummary)
 					.totalPoints(monthlySummary.stream().mapToInt(YearMonthPointsInfo::getPoints).sum()).build();
 
