@@ -17,24 +17,24 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/api/rewardpoints")
 public class RewardAppController {
-	Logger logger= LoggerFactory.getLogger(RewardAppController.class);
-	
+	Logger logger = LoggerFactory.getLogger(RewardAppController.class);
+
 	private RewardAppService rewardAppService;
-	
-	RewardAppController(RewardAppService rewardAppService){
-		this.rewardAppService=rewardAppService;
-		
+
+	RewardAppController(RewardAppService rewardAppService) {
+		this.rewardAppService = rewardAppService;
+
 	}
-	
+
 	@GetMapping("/get/{customerId}")
-	public ResponseEntity<CustomerRewards> getCustomerRewardsPointsById(@Valid @PathVariable Integer customerId) throws Exception {
-		if(customerId==null || customerId <=0) {
+	public ResponseEntity<CustomerRewards> getCustomerRewardsPointsById(@Valid @PathVariable Integer customerId)
+			throws Exception {
+		if (customerId == null || customerId <= 0) {
 			throw new IllegalArgumentException("Customer ID must be positive number");
 		}
-		logger.info("Get customer details ",customerId);
+		logger.info("Get customer details ", customerId);
 		CustomerRewards customerRewards = rewardAppService.getCustomerRewardsPointsById(customerId);
 		return ResponseEntity.ok().body(customerRewards);
 	}
 
 }
-
