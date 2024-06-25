@@ -35,5 +35,6 @@ Application is built using Spring Boot framework with in memory db h2.
 
 URL can be used for other customersId=1 or 3 by replacing 1 at the end of the url.
 
+Testcases documentation: please refer rewardapp/TestCases-RewardApp.docx
 Api & Unit test results:
 pl refer rewardapp/unittestresults.PNG , rewardapp/api-1.PNG and rewardapp/api2.PNG
