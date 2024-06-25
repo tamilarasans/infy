@@ -1,5 +1,9 @@
 package com.chc.rewardapp;
 
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.chc.rewardapp.model.CustomerRewards;
 
-//@SpringBootTest
+
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class RewardappApplicationTests {
 
@@ -26,21 +30,20 @@ class RewardappApplicationTests {
 	@Test
 	void customerRewardsEndPointTest1() throws Exception {
 		String baseUrl = "http://localhost:8080" + "/";	
-		
-		ResponseEntity<CustomerRewards> responseEntity = restTemplate.getForEntity(baseUrl + API_CUSTOMER_SUMMARY +"/2", CustomerRewards.class);
+		ResponseEntity<CustomerRewards> responseEntity = restTemplate.getForEntity(baseUrl + API_CUSTOMER_SUMMARY +"/1", CustomerRewards.class);
 		assert(responseEntity.getStatusCode() == HttpStatus.OK);
 		CustomerRewards rewardsInfo = responseEntity.getBody();
-		assert(rewardsInfo != null  && rewardsInfo.getTotalPoints() > 0);
+		assertEquals(689,rewardsInfo.getTotalPoints());
 	}
 	
 
 	@Test
 	void customerRewardsEndPointTest2() throws Exception {
-		String baseUrl = "http://localhost:8080"  + "/";		
-		ResponseEntity<CustomerRewards> responseEntity = restTemplate.getForEntity(baseUrl + API_CUSTOMER_SUMMARY +"/1", CustomerRewards.class);
+		String baseUrl = "http://localhost:8080" + "/";		
+		ResponseEntity<CustomerRewards> responseEntity = restTemplate.getForEntity(baseUrl + API_CUSTOMER_SUMMARY +"/2", CustomerRewards.class);
 		assert(responseEntity.getStatusCode() == HttpStatus.OK);
 		CustomerRewards rewardsInfo = responseEntity.getBody();
-		assert(rewardsInfo != null && rewardsInfo.getTotalPoints() ==0);
+		assertEquals(786,rewardsInfo.getTotalPoints());
 	}
 
 }
