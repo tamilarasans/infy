@@ -33,18 +33,19 @@ public class RewardAppService {
 		// Validate if customers purchase transactions are not null/ empty.
 		if (transactions != null && !transactions.isEmpty()) {
 
-			logger.info("Create a map of YearMonth and transactions specific to it for the costumerId");
+			logger.info("Create yearmonth map with list of transactions and month specific to it for the costumerId");
 			// Create a map of YearMonth and transactions specific to it for the costumerId.
 			Map<YearMonth, List<CustomerTxns>> yearMonthMap = transactions.stream()
 					.collect(Collectors.groupingBy(CustomerTxns::getPurchaseYearMonth));
 			// Create monthly summary of points for each YearMonth.
-			logger.info("Create monthly summary of points for each YearMonth");
+			logger.info("create list of yearmonth points for the customer by using getRewardPoints calculation logic");
 			List<YearMonthPointsInfo> monthlySummary = yearMonthMap.entrySet().stream().map(e -> YearMonthPointsInfo
 					.builder().yearMonth(e.getKey()).points(getRewardPoints(e.getValue())).build())
 					.collect(Collectors.toList());
-			// Build customer rewards object with monthly summary of points and total reward
-			// points of customerId
-			logger.info("Build customer rewards object with monthly summary of points and total reward points of customerId");
+			// build customerRewardsInfo object with yearmonth & its points, total points of
+			// customerId
+			logger.info(
+					"Build customer rewards info object containing all the months ,points and total points of customerId");
 			customerRewards = CustomerRewards.builder().customerId(customerId).monthlySummary(monthlySummary)
 					.totalPoints(monthlySummary.stream().mapToInt(YearMonthPointsInfo::getPoints).sum()).build();
 
