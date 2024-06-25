@@ -13,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class YearMonthPointsInfo {
 
-
 	private YearMonth yearMonth;
 
 	private Integer points;
