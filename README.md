@@ -30,9 +30,11 @@ Application:
 Points calculation logic : A customer receives 2 points for every dollar spent over $100 in each transaction, plus 1 point for every dollar spent between $50 and $100 in each transaction.(e.g. a $120 purchase = 2x$20 + 1x$50 = 90 points).
 
 Application is built using Spring Boot framework with in memory db h2.
-
 URL can be used for other customersId=1 or 3 by replacing 1 at the end of the url.
 
+Design and datamodels: please refer rewardapp/Highleveldesign.png & rewardapp/ObjectandDataModel.png
+
 Testcases documentation: please refer rewardapp/TestCases-RewardApp.docx
+
 Api & Unit test results:
 pl refer rewardapp/unittestresults.PNG , rewardapp/api-success.PNG and rewardapp/api-failure.PNG
