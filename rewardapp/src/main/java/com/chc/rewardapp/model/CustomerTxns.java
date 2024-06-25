@@ -15,33 +15,32 @@ import lombok.Data;
 @Data
 @Table(name = "customer_transactions")
 public class CustomerTxns {
-	
+
 	@Id
 	@Column(name = "id")
-    private Long id;
-    
-    @Column(name = "customer_id")
-    private Integer customerId;
+	private Long id;
 
-    @Column(name = "purchase_details")
-    private String purchaseDetails;
+	@Column(name = "customer_id")
+	private Integer customerId;
 
-    @Column(name = "total_amount")
-    private Double totalAmount;
-    
-   
+	@Column(name = "purchase_details")
+	private String purchaseDetails;
+
+	@Column(name = "total_amount")
+	private Double totalAmount;
+
 	@Column(name = "purchase_date")
-    private Date purchaseDate;
-    
-    @Column(name = "updated_date")
-    private Date updatedDate;
+	private Date purchaseDate;
 
-    private YearMonth purchaseYearMonth;
-    
-    public YearMonth getPurchaseYearMonth( ) {
-    	this.purchaseYearMonth= YearMonth.from(this.purchaseDate.toInstant().atZone(ZoneId.systemDefault())
-                .toLocalDate());
-    	return purchaseYearMonth;
-    }
+	@Column(name = "updated_date")
+	private Date updatedDate;
+
+	private YearMonth purchaseYearMonth;
+
+	public YearMonth getPurchaseYearMonth() {
+		this.purchaseYearMonth = YearMonth
+				.from(this.purchaseDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+		return purchaseYearMonth;
+	}
 
 }
